@@ -5,12 +5,18 @@
     font-family: "Bellota", system-ui;
 }
 
+:root {
+    --corPrincipal: #ad3e4c;
+    --arredondamento:10px;
+    --sombra:0 4px 4px 2px #00000025;
+}
+
 body {
     background-color: #fff6e8;
 }
 
 header {
-    background-color: #ffd188;
+    background-color: var(--corPrincipal);
     height: 100px;
 }
 
@@ -66,23 +72,27 @@ header {
     white-space: nowrap;
 }
 
+/*cadastro*/
+.container_lista,
 .containe_cadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.container_lista h2,
 .containe_cadastro h2 {
     font-size: 48px;
     margin-top: 100px;
 }
 
+.container_lista hr,
 .containe_cadastro hr {
     width: 300px;
     height: 4px;
     border: none;
     border-radius: 2px;
-    background-color: #ffd188;
+    background-color: var(--corPrincipal);
     margin-bottom: 100px;
 }
 
@@ -155,9 +165,9 @@ header {
     margin: 50PX 0;
     border-radius: 10px;
     border: none;
-    background-color: #ffd188;
+    background-color: var(--corPrincipal);
     padding: 10px 200px;
-    box-shadow: 0 4px 4px 2px #00000025;
+    box-shadow:var(--sombra);
     cursor: pointer;
 }
 
@@ -192,23 +202,104 @@ input[type="file"] {
     width: 40%;
 }
 
+/*lista*/
+table {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: solid 2px var(--corPrincipal);
+    padding: 0 3px 5px 3px;
+    font-size: 18px;
+}
+
+
+td {
+    border-bottom: solid 2px #b3b3b3;
+    padding: 10px 3px 5px 3px;
+}
+
+table svg {
+    width: 30px;
+}
+
+.rodape{
+    width: 100%;
+    height: 60px;
+    background-color: #ffd188;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-family: "Julius Sans One", sans-serif;
+    text-align: center;
+}
 
 
 
 
 
 /*media*/
-@media screen and (max-width) {
+@media screen and (max-width: 1000px) {
+    table {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .box_cadastro {
         flex-direction: column;
     }
 
     .cadastro_coluna1,
-    .cadastro_coluna2{
+    .cadastro_coluna2 {
         width: 100%;
     }
+
+
+.containe_cadastro input [type="buttin"] {
+    padding: 10px 100px;
+
 }
 
-.containe_cadastro input [type="buttin"]{
-    padding: 10px 100px;
+
+/*lista*/
+table {
+    text-align: left;
+    max-width: 460px;
+}
+
+tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: var(--arredondamento);
+    border: solid 1px var(--corPrincipal);
+    box-shadow: var(--sombra);
+}
+
+thead {
+    display: none;
+}
+
+td{
+    border-bottom: none;
+}
+
+td::before {
+    content: attr(data-cell);
+    font-weight: 600;
+}
+
+td:last-child{
+    align-self: flex-end;
+    cursor: pointer;
+}
+
 }
